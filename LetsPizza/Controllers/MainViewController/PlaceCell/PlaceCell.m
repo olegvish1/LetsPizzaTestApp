@@ -7,10 +7,12 @@
 //
 
 #import "PlaceCell.h"
+#import "PizzaPlace.h"
 
 @interface PlaceCell ()
 
-
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
 
 @end
 
@@ -19,6 +21,12 @@
 - (void)awakeFromNib {
     // Initialization code
     
+}
+
+- (void)setPlace:(PizzaPlace *)place {
+    _place = place;
+    self.nameLabel.text = place.name;
+    self.distanceLabel.text = [NSString stringWithFormat:@"%@ m", place.distance];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

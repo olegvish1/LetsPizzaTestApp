@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class PizzaPlace;
+
 @interface PlaceCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
+@property (strong, nonatomic) PizzaPlace *place;
 
 @end

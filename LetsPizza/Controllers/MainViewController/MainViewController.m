@@ -70,8 +70,7 @@ static NSString *cellIdentifier = @"PlaceCell";
     
     PizzaPlace *place = [self.places objectAtIndex:indexPath.row];
     
-    cell.nameLabel.text = place.name;
-    cell.distanceLabel.text = [NSString stringWithFormat:@"%@ m", place.distance];
+    cell.place = place;
     
     return cell;
 }
