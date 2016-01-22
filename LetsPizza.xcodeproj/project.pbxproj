@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07C16391512980BB4B7467DB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1F734E14BF600FA851ED11E /* libPods.a */; };
 		141935D71C52461B00F18B00 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 141935D61C52461B00F18B00 /* main.m */; };
 		141935DA1C52461B00F18B00 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 141935D91C52461B00F18B00 /* AppDelegate.m */; };
 		141935DD1C52461B00F18B00 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141935DC1C52461B00F18B00 /* ViewController.m */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1093774F91675E2E517CB313 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		141935D21C52461B00F18B00 /* LetsPizza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsPizza.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		141935D61C52461B00F18B00 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		141935D81C52461B00F18B00 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -28,6 +30,8 @@
 		141935E41C52461B00F18B00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		141935E71C52461B00F18B00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		141935E91C52461B00F18B00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F5A53B86282303292D7B71D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		D1F734E14BF600FA851ED11E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +39,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07C16391512980BB4B7467DB /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C6C6ECC784BCD92887015C9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D1F734E14BF600FA851ED11E /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		141935C91C52461B00F18B00 = {
 			isa = PBXGroup;
 			children = (
 				141935D41C52461B00F18B00 /* LetsPizza */,
 				141935D31C52461B00F18B00 /* Products */,
+				60D85009749374661C5BDB9A /* Pods */,
+				0C6C6ECC784BCD92887015C9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,6 +97,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		60D85009749374661C5BDB9A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2F5A53B86282303292D7B71D /* Pods.debug.xcconfig */,
+				1093774F91675E2E517CB313 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -89,9 +113,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 141935EC1C52461B00F18B00 /* Build configuration list for PBXNativeTarget "LetsPizza" */;
 			buildPhases = (
+				B425298E1779B8A7C0C95E1E /* Check Pods Manifest.lock */,
 				141935CE1C52461B00F18B00 /* Sources */,
 				141935CF1C52461B00F18B00 /* Frameworks */,
 				141935D01C52461B00F18B00 /* Resources */,
+				C09595D6D1FD8CB75C7851FB /* Embed Pods Frameworks */,
+				82474EFBE4EB76C3E545BBB4 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -146,6 +173,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		82474EFBE4EB76C3E545BBB4 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B425298E1779B8A7C0C95E1E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C09595D6D1FD8CB75C7851FB /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		141935CE1C52461B00F18B00 /* Sources */ = {
@@ -263,9 +338,11 @@
 		};
 		141935ED1C52461B00F18B00 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F5A53B86282303292D7B71D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LetsPizza/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.LetsPizza;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -274,9 +351,11 @@
 		};
 		141935EE1C52461B00F18B00 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1093774F91675E2E517CB313 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = LetsPizza/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.LetsPizza;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -302,6 +381,7 @@
 				141935EE1C52461B00F18B00 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
