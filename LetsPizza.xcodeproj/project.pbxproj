@@ -10,11 +10,13 @@
 		07C16391512980BB4B7467DB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1F734E14BF600FA851ED11E /* libPods.a */; };
 		141935D71C52461B00F18B00 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 141935D61C52461B00F18B00 /* main.m */; };
 		141935DA1C52461B00F18B00 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 141935D91C52461B00F18B00 /* AppDelegate.m */; };
-		141935DD1C52461B00F18B00 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141935DC1C52461B00F18B00 /* ViewController.m */; };
 		141935E01C52461B00F18B00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141935DE1C52461B00F18B00 /* Main.storyboard */; };
 		141935E31C52461B00F18B00 /* LetsPizza.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 141935E11C52461B00F18B00 /* LetsPizza.xcdatamodeld */; };
 		141935E51C52461B00F18B00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 141935E41C52461B00F18B00 /* Assets.xcassets */; };
 		141935E81C52461B00F18B00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141935E61C52461B00F18B00 /* LaunchScreen.storyboard */; };
+		141935F11C52556D00F18B00 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141935F01C52556D00F18B00 /* MainViewController.m */; };
+		141935F61C5255BD00F18B00 /* PizzaDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141935F51C5255BD00F18B00 /* PizzaDetailViewController.m */; };
+		141935FA1C5257A200F18B00 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 141935F91C5257A200F18B00 /* NetworkManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,13 +25,17 @@
 		141935D61C52461B00F18B00 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		141935D81C52461B00F18B00 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		141935D91C52461B00F18B00 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		141935DB1C52461B00F18B00 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		141935DC1C52461B00F18B00 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		141935DF1C52461B00F18B00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		141935E21C52461B00F18B00 /* LetsPizza.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LetsPizza.xcdatamodel; sourceTree = "<group>"; };
 		141935E41C52461B00F18B00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		141935E71C52461B00F18B00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		141935E91C52461B00F18B00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		141935EF1C52556D00F18B00 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = Controllers/MainViewController/MainViewController.h; sourceTree = "<group>"; };
+		141935F01C52556D00F18B00 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = Controllers/MainViewController/MainViewController.m; sourceTree = "<group>"; };
+		141935F41C5255BD00F18B00 /* PizzaDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PizzaDetailViewController.h; path = Controllers/PizzaDetailViewController/PizzaDetailViewController.h; sourceTree = "<group>"; };
+		141935F51C5255BD00F18B00 /* PizzaDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PizzaDetailViewController.m; path = Controllers/PizzaDetailViewController/PizzaDetailViewController.m; sourceTree = "<group>"; };
+		141935F81C5257A200F18B00 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkManager.h; path = Classes/NetworkManager/NetworkManager.h; sourceTree = "<group>"; };
+		141935F91C5257A200F18B00 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkManager.m; path = Classes/NetworkManager/NetworkManager.m; sourceTree = "<group>"; };
 		2F5A53B86282303292D7B71D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D1F734E14BF600FA851ED11E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -77,8 +83,8 @@
 			children = (
 				141935D81C52461B00F18B00 /* AppDelegate.h */,
 				141935D91C52461B00F18B00 /* AppDelegate.m */,
-				141935DB1C52461B00F18B00 /* ViewController.h */,
-				141935DC1C52461B00F18B00 /* ViewController.m */,
+				141935FC1C5257AB00F18B00 /* Classes */,
+				141935F31C52559900F18B00 /* Controllers */,
 				141935DE1C52461B00F18B00 /* Main.storyboard */,
 				141935E41C52461B00F18B00 /* Assets.xcassets */,
 				141935E61C52461B00F18B00 /* LaunchScreen.storyboard */,
@@ -95,6 +101,50 @@
 				141935D61C52461B00F18B00 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		141935F21C52559400F18B00 /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				141935EF1C52556D00F18B00 /* MainViewController.h */,
+				141935F01C52556D00F18B00 /* MainViewController.m */,
+			);
+			name = MainViewController;
+			sourceTree = "<group>";
+		};
+		141935F31C52559900F18B00 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				141935F21C52559400F18B00 /* MainViewController */,
+				141935F71C5255C200F18B00 /* PizzaDetailViewController */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		141935F71C5255C200F18B00 /* PizzaDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				141935F41C5255BD00F18B00 /* PizzaDetailViewController.h */,
+				141935F51C5255BD00F18B00 /* PizzaDetailViewController.m */,
+			);
+			name = PizzaDetailViewController;
+			sourceTree = "<group>";
+		};
+		141935FB1C5257A600F18B00 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				141935F81C5257A200F18B00 /* NetworkManager.h */,
+				141935F91C5257A200F18B00 /* NetworkManager.m */,
+			);
+			name = NetworkManager;
+			sourceTree = "<group>";
+		};
+		141935FC1C5257AB00F18B00 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				141935FB1C5257A600F18B00 /* NetworkManager */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 		60D85009749374661C5BDB9A /* Pods */ = {
@@ -228,8 +278,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				141935E31C52461B00F18B00 /* LetsPizza.xcdatamodeld in Sources */,
-				141935DD1C52461B00F18B00 /* ViewController.m in Sources */,
 				141935DA1C52461B00F18B00 /* AppDelegate.m in Sources */,
+				141935F11C52556D00F18B00 /* MainViewController.m in Sources */,
+				141935F61C5255BD00F18B00 /* PizzaDetailViewController.m in Sources */,
+				141935FA1C5257A200F18B00 /* NetworkManager.m in Sources */,
 				141935D71C52461B00F18B00 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
