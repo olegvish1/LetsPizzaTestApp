@@ -1,0 +1,322 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		141935D71C52461B00F18B00 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 141935D61C52461B00F18B00 /* main.m */; };
+		141935DA1C52461B00F18B00 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 141935D91C52461B00F18B00 /* AppDelegate.m */; };
+		141935DD1C52461B00F18B00 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141935DC1C52461B00F18B00 /* ViewController.m */; };
+		141935E01C52461B00F18B00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141935DE1C52461B00F18B00 /* Main.storyboard */; };
+		141935E31C52461B00F18B00 /* LetsPizza.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 141935E11C52461B00F18B00 /* LetsPizza.xcdatamodeld */; };
+		141935E51C52461B00F18B00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 141935E41C52461B00F18B00 /* Assets.xcassets */; };
+		141935E81C52461B00F18B00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141935E61C52461B00F18B00 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		141935D21C52461B00F18B00 /* LetsPizza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsPizza.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		141935D61C52461B00F18B00 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		141935D81C52461B00F18B00 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		141935D91C52461B00F18B00 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		141935DB1C52461B00F18B00 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		141935DC1C52461B00F18B00 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		141935DF1C52461B00F18B00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		141935E21C52461B00F18B00 /* LetsPizza.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LetsPizza.xcdatamodel; sourceTree = "<group>"; };
+		141935E41C52461B00F18B00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		141935E71C52461B00F18B00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		141935E91C52461B00F18B00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		141935CF1C52461B00F18B00 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		141935C91C52461B00F18B00 = {
+			isa = PBXGroup;
+			children = (
+				141935D41C52461B00F18B00 /* LetsPizza */,
+				141935D31C52461B00F18B00 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		141935D31C52461B00F18B00 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				141935D21C52461B00F18B00 /* LetsPizza.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		141935D41C52461B00F18B00 /* LetsPizza */ = {
+			isa = PBXGroup;
+			children = (
+				141935D81C52461B00F18B00 /* AppDelegate.h */,
+				141935D91C52461B00F18B00 /* AppDelegate.m */,
+				141935DB1C52461B00F18B00 /* ViewController.h */,
+				141935DC1C52461B00F18B00 /* ViewController.m */,
+				141935DE1C52461B00F18B00 /* Main.storyboard */,
+				141935E41C52461B00F18B00 /* Assets.xcassets */,
+				141935E61C52461B00F18B00 /* LaunchScreen.storyboard */,
+				141935E91C52461B00F18B00 /* Info.plist */,
+				141935E11C52461B00F18B00 /* LetsPizza.xcdatamodeld */,
+				141935D51C52461B00F18B00 /* Supporting Files */,
+			);
+			path = LetsPizza;
+			sourceTree = "<group>";
+		};
+		141935D51C52461B00F18B00 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				141935D61C52461B00F18B00 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		141935D11C52461B00F18B00 /* LetsPizza */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 141935EC1C52461B00F18B00 /* Build configuration list for PBXNativeTarget "LetsPizza" */;
+			buildPhases = (
+				141935CE1C52461B00F18B00 /* Sources */,
+				141935CF1C52461B00F18B00 /* Frameworks */,
+				141935D01C52461B00F18B00 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LetsPizza;
+			productName = LetsPizza;
+			productReference = 141935D21C52461B00F18B00 /* LetsPizza.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		141935CA1C52461B00F18B00 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Oleg Vishnivetskiy";
+				TargetAttributes = {
+					141935D11C52461B00F18B00 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = 141935CD1C52461B00F18B00 /* Build configuration list for PBXProject "LetsPizza" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 141935C91C52461B00F18B00;
+			productRefGroup = 141935D31C52461B00F18B00 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				141935D11C52461B00F18B00 /* LetsPizza */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		141935D01C52461B00F18B00 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				141935E81C52461B00F18B00 /* LaunchScreen.storyboard in Resources */,
+				141935E51C52461B00F18B00 /* Assets.xcassets in Resources */,
+				141935E01C52461B00F18B00 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		141935CE1C52461B00F18B00 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				141935E31C52461B00F18B00 /* LetsPizza.xcdatamodeld in Sources */,
+				141935DD1C52461B00F18B00 /* ViewController.m in Sources */,
+				141935DA1C52461B00F18B00 /* AppDelegate.m in Sources */,
+				141935D71C52461B00F18B00 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		141935DE1C52461B00F18B00 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				141935DF1C52461B00F18B00 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		141935E61C52461B00F18B00 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				141935E71C52461B00F18B00 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		141935EA1C52461B00F18B00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		141935EB1C52461B00F18B00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		141935ED1C52461B00F18B00 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LetsPizza/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.LetsPizza;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		141935EE1C52461B00F18B00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LetsPizza/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.LetsPizza;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		141935CD1C52461B00F18B00 /* Build configuration list for PBXProject "LetsPizza" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				141935EA1C52461B00F18B00 /* Debug */,
+				141935EB1C52461B00F18B00 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		141935EC1C52461B00F18B00 /* Build configuration list for PBXNativeTarget "LetsPizza" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				141935ED1C52461B00F18B00 /* Debug */,
+				141935EE1C52461B00F18B00 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		141935E11C52461B00F18B00 /* LetsPizza.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				141935E21C52461B00F18B00 /* LetsPizza.xcdatamodel */,
+			);
+			currentVersion = 141935E21C52461B00F18B00 /* LetsPizza.xcdatamodel */;
+			path = LetsPizza.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 141935CA1C52461B00F18B00 /* Project object */;
+}
