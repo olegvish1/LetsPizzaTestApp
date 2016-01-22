@@ -17,6 +17,9 @@
 		141935F11C52556D00F18B00 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141935F01C52556D00F18B00 /* MainViewController.m */; };
 		141935F61C5255BD00F18B00 /* PizzaDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141935F51C5255BD00F18B00 /* PizzaDetailViewController.m */; };
 		141935FA1C5257A200F18B00 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 141935F91C5257A200F18B00 /* NetworkManager.m */; };
+		141935FF1C527FBB00F18B00 /* PizzaPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 141935FE1C527FBB00F18B00 /* PizzaPlace.m */; };
+		141936051C5291FD00F18B00 /* PlaceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 141936031C5291FD00F18B00 /* PlaceCell.m */; };
+		141936061C5291FD00F18B00 /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 141936041C5291FD00F18B00 /* PlaceCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,11 @@
 		141935F51C5255BD00F18B00 /* PizzaDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PizzaDetailViewController.m; path = Controllers/PizzaDetailViewController/PizzaDetailViewController.m; sourceTree = "<group>"; };
 		141935F81C5257A200F18B00 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkManager.h; path = Classes/NetworkManager/NetworkManager.h; sourceTree = "<group>"; };
 		141935F91C5257A200F18B00 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkManager.m; path = Classes/NetworkManager/NetworkManager.m; sourceTree = "<group>"; };
+		141935FD1C527FBB00F18B00 /* PizzaPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PizzaPlace.h; path = Classes/Model/PizzaPlace.h; sourceTree = "<group>"; };
+		141935FE1C527FBB00F18B00 /* PizzaPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PizzaPlace.m; path = Classes/Model/PizzaPlace.m; sourceTree = "<group>"; };
+		141936021C5291FD00F18B00 /* PlaceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaceCell.h; path = Controllers/MainViewController/PlaceCell/PlaceCell.h; sourceTree = "<group>"; };
+		141936031C5291FD00F18B00 /* PlaceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlaceCell.m; path = Controllers/MainViewController/PlaceCell/PlaceCell.m; sourceTree = "<group>"; };
+		141936041C5291FD00F18B00 /* PlaceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlaceCell.xib; path = Controllers/MainViewController/PlaceCell/PlaceCell.xib; sourceTree = "<group>"; };
 		2F5A53B86282303292D7B71D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D1F734E14BF600FA851ED11E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -108,6 +116,7 @@
 			children = (
 				141935EF1C52556D00F18B00 /* MainViewController.h */,
 				141935F01C52556D00F18B00 /* MainViewController.m */,
+				141936071C52920400F18B00 /* PlaceCell */,
 			);
 			name = MainViewController;
 			sourceTree = "<group>";
@@ -143,8 +152,36 @@
 			isa = PBXGroup;
 			children = (
 				141935FB1C5257A600F18B00 /* NetworkManager */,
+				141936011C527FC500F18B00 /* Model */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		141936001C527FC000F18B00 /* PizzaPlace */ = {
+			isa = PBXGroup;
+			children = (
+				141935FD1C527FBB00F18B00 /* PizzaPlace.h */,
+				141935FE1C527FBB00F18B00 /* PizzaPlace.m */,
+			);
+			name = PizzaPlace;
+			sourceTree = "<group>";
+		};
+		141936011C527FC500F18B00 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				141936001C527FC000F18B00 /* PizzaPlace */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		141936071C52920400F18B00 /* PlaceCell */ = {
+			isa = PBXGroup;
+			children = (
+				141936021C5291FD00F18B00 /* PlaceCell.h */,
+				141936031C5291FD00F18B00 /* PlaceCell.m */,
+				141936041C5291FD00F18B00 /* PlaceCell.xib */,
+			);
+			name = PlaceCell;
 			sourceTree = "<group>";
 		};
 		60D85009749374661C5BDB9A /* Pods */ = {
@@ -219,6 +256,7 @@
 				141935E81C52461B00F18B00 /* LaunchScreen.storyboard in Resources */,
 				141935E51C52461B00F18B00 /* Assets.xcassets in Resources */,
 				141935E01C52461B00F18B00 /* Main.storyboard in Resources */,
+				141936061C5291FD00F18B00 /* PlaceCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,7 +316,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				141935E31C52461B00F18B00 /* LetsPizza.xcdatamodeld in Sources */,
+				141935FF1C527FBB00F18B00 /* PizzaPlace.m in Sources */,
 				141935DA1C52461B00F18B00 /* AppDelegate.m in Sources */,
+				141936051C5291FD00F18B00 /* PlaceCell.m in Sources */,
 				141935F11C52556D00F18B00 /* MainViewController.m in Sources */,
 				141935F61C5255BD00F18B00 /* PizzaDetailViewController.m in Sources */,
 				141935FA1C5257A200F18B00 /* NetworkManager.m in Sources */,
