@@ -10,6 +10,7 @@
 #import "NetworkManager.h"
 #import "PizzaPlace.h"
 #import "PlaceCell.h"
+#import "MBProgressHUD.h"
 
 static NSString *cellIdentifier = @"PlaceCell";
 
@@ -30,17 +31,23 @@ static NSString *cellIdentifier = @"PlaceCell";
 //    [self.tableView registerClass:[PlaceCell class] forCellReuseIdentifier:cellIdentifier];
     
     self.navigationItem.title = @"Pizza plases";
+    
+    [self fetchPlaces];
+    
+}
+
+- (void)fetchPlaces {
+    [MBProgressHUD showHUDAddedTo:self.view animated:NO];
     __weak __typeof(self)weakSelf = self;
     [[NetworkManager sharedManager] exploreVenuesWithSearchWord:@"pizza" parameters:nil success:^(id JSON) {
-//        NSLog(@"%@", JSON);
         NSArray *items = [[[[JSON objectForKey:@"response"] objectForKey:@"groups"] objectAtIndex:0] objectForKey:@"items"];
-        NSLog(@"%@", [items objectAtIndex:0]);
-        [weakSelf fetchPlaces:items];
+        [weakSelf convertPlaces:items];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         
     } failure:^(NSError *error) {
         NSLog(@"%@", error);
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,7 +55,7 @@ static NSString *cellIdentifier = @"PlaceCell";
     // Dispose of any resources that can be recreated.
 }
 
-- (void)fetchPlaces:(NSArray *)items {
+- (void)convertPlaces:(NSArray *)items {
     NSMutableArray *places = [NSMutableArray new];
     for (NSDictionary *item in items) {
         PizzaPlace *place = [[PizzaPlace alloc] initWithDictionary:item];

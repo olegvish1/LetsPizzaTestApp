@@ -61,6 +61,8 @@ NSString *const LimitKey = @"limit";
     [allParameters setObject:NetworkManagerClientSecret forKey:ClientSecretKey];
     [allParameters setObject:VersionParameter forKey:VersionParameterKey];
     
+    NSLog(@"URL: %@\nParameters: %@", URLString, allParameters);
+    
     [self.requestManager GET:[NSString stringWithFormat:@"%@%@", NetworkManagerBaseURL, URLString] parameters:allParameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@",responseObject);
         success(responseObject);
