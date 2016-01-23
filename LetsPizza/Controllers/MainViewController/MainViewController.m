@@ -10,16 +10,21 @@
 #import "NetworkManager.h"
 #import "PizzaPlace.h"
 #import "PlaceCell.h"
+#import "SpinnerCell.h"
 #import "MBProgressHUD.h"
 #import <CoreLocation/CoreLocation.h>
 
+static NSString *searchWord = @"pizza";
 static NSString *cellIdentifier = @"PlaceCell";
+static NSString *spinnerCellIdentifier = @"SpinnerCell";
 
 @interface MainViewController () <UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate>
 
-@property (strong, nonatomic) NSArray *places;
+@property (strong, nonatomic) NSMutableArray *places;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) CLLocation *currecntLocation;
+@property (nonatomic) NSUInteger offset;
 
 @end
 
@@ -32,7 +37,6 @@ static NSString *cellIdentifier = @"PlaceCell";
     [self setupLocation];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"PlaceCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
-//    [self.tableView registerClass:[PlaceCell class] forCellReuseIdentifier:cellIdentifier];
     
     self.navigationItem.title = @"Pizza plases";
     
@@ -47,27 +51,44 @@ static NSString *cellIdentifier = @"PlaceCell";
     [self.locationManager startUpdatingLocation];
 }
 
-- (void)fetchPlacesWithLocation:(CLLocation *) location{
+- (void)fetchPlaces {
     [MBProgressHUD showHUDAddedTo:self.view animated:NO];
     __weak __typeof(self)weakSelf = self;
-    [[NetworkManager sharedManager] exploreVenuesWithSearchWord:@"pizza" location:location success:^(NSArray *items) {
-        [weakSelf convertPlaces:items];
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [[NetworkManager sharedManager] exploreVenuesWithSearchWord:searchWord location:self.currecntLocation success:^(NSArray *items) {
+        [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+        weakSelf.offset += items.count;
+        weakSelf.places = [weakSelf convertPlaces:items];
+        [self.tableView reloadData];
+        
         
     } failure:^(NSError *error) {
         NSLog(@"%@", error);
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+        [weakSelf showErrorAlert:error.localizedDescription];
     }];
 }
 
-- (void)convertPlaces:(NSArray *)items {
+- (void)appendPlaces {
+    __weak __typeof(self)weakSelf = self;
+    [[NetworkManager sharedManager] exploreVenuesWithSearchWord:searchWord location:self.currecntLocation offset:@(self.offset) success:^(NSArray *items) {
+        weakSelf.offset += items.count;
+        
+        [self.places addObjectsFromArray:[weakSelf convertPlaces:items]];
+        [self.tableView reloadData];
+        
+    } failure:^(NSError *error) {
+        [weakSelf showErrorAlert:error.localizedDescription];
+    }];
+}
+
+- (NSMutableArray *)convertPlaces:(NSArray *)items {
     NSMutableArray *places = [NSMutableArray new];
     for (NSDictionary *item in items) {
         PizzaPlace *place = [[PizzaPlace alloc] initWithDictionary:item];
         [places addObject:place];
     }
-    self.places = [NSArray arrayWithArray:places];
-    [self.tableView reloadData];
+    
+    return places;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,24 +99,36 @@ static NSString *cellIdentifier = @"PlaceCell";
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.places.count;
+    return self.places.count + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    PlaceCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
-    PizzaPlace *place = [self.places objectAtIndex:indexPath.row];
-    
-    cell.place = place;
-    
-    return cell;
+    if (indexPath.row < self.places.count) {
+        PlaceCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        
+        PizzaPlace *place = [self.places objectAtIndex:indexPath.row];
+        
+        cell.place = place;
+        return cell;
+    } else {
+        SpinnerCell *cell = [tableView dequeueReusableCellWithIdentifier:spinnerCellIdentifier];
+        self.places.count > 0 ? [cell.spinner startAnimating] : [cell.spinner stopAnimating];
+        
+        return cell;
+    }
 }
 
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 75.0f;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.places.count > 0 && indexPath.row == self.places.count) {
+        [self appendPlaces];
+    }
 }
 
 /*
@@ -110,10 +143,10 @@ static NSString *cellIdentifier = @"PlaceCell";
 
 #pragma mark - CLLocationManagerDelegate
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    CLLocation *location = [locations lastObject];
-    if (location) {
+    self.currecntLocation = [locations lastObject];
+    if (self.currecntLocation) {
         [manager stopUpdatingLocation];
-        [self fetchPlacesWithLocation:location];
+        [self fetchPlaces];
     }
     
 }

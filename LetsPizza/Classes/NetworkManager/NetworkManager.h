@@ -21,4 +21,6 @@ typedef void (^FailureBlock)(NSError *error);
 
 - (void)exploreVenuesWithSearchWord:(NSString *)search location:(CLLocation *)location success:(SuccessBlock)success failure:(FailureBlock)failure;
 
+- (void)exploreVenuesWithSearchWord:(NSString *)search location:(CLLocation *)location offset:(NSNumber *)offset success:(SuccessBlock)success failure:(FailureBlock)failure;
+
 @end

@@ -22,11 +22,16 @@ NSString *const NetworkManagerVenuesSearch = @"/venues/search";
 
 NSString *const NetworkManagerVenuesExplore = @"/venues/explore";
 
-NSString *const ClientIDKey = @"client_id";
-NSString *const ClientSecretKey = @"client_secret";
-NSString *const QueryKey = @"query";
-NSString *const VersionParameterKey = @"v";
-NSString *const LimitKey = @"limit";
+NSUInteger const limit = 10;
+
+NSString *const clientIDKey = @"client_id";
+NSString *const clientSecretKey = @"client_secret";
+NSString *const queryKey = @"query";
+NSString *const versionParameterKey = @"v";
+NSString *const limitKey = @"limit";
+NSString *const locationKey = @"ll";
+NSString *const sortKey = @"sortByDistance";
+NSString *const offsetKey = @"offset";
 
 @interface NetworkManager ()
 
@@ -59,9 +64,9 @@ NSString *const LimitKey = @"limit";
 - (void)GET:(NSString *)URLString parameters:(NSDictionary *)parameters success:(SuccessBlock)success failure:(FailureBlock)failure {
     
     NSMutableDictionary *allParameters = [NSMutableDictionary dictionaryWithDictionary:parameters];
-    [allParameters setObject:NetworkManagerClientID forKey:ClientIDKey];
-    [allParameters setObject:NetworkManagerClientSecret forKey:ClientSecretKey];
-    [allParameters setObject:VersionParameter forKey:VersionParameterKey];
+    [allParameters setObject:NetworkManagerClientID forKey:clientIDKey];
+    [allParameters setObject:NetworkManagerClientSecret forKey:clientSecretKey];
+    [allParameters setObject:VersionParameter forKey:versionParameterKey];
     
     NSLog(@"URL: %@\nParameters: %@", URLString, allParameters);
     
@@ -81,7 +86,7 @@ NSString *const LimitKey = @"limit";
     CGFloat latitude = 40.7;
     CGFloat longitude = -74.0;
     
-    NSDictionary *dict = @{@"ll" : [NSString stringWithFormat:@"%0.1f,%0.1f", latitude, longitude], @"query" : search, LimitKey : @(2)};
+    NSDictionary *dict = @{locationKey : [NSString stringWithFormat:@"%0.1f,%0.1f", latitude, longitude], queryKey : search, limitKey : @(2)};
     
     [self GET:NetworkManagerVenuesSearch parameters:dict success:success failure:failure];
 }
@@ -93,11 +98,11 @@ NSString *const LimitKey = @"limit";
 
 - (void)exploreVenuesWithSearchWord:(NSString *)search location:(CLLocation *)location offset:(NSNumber *)offset success:(SuccessBlock)success failure:(FailureBlock)failure {
     NSString *coordinateString = [NSString stringWithFormat:@"%0.1f,%0.1f", location.coordinate.latitude, location.coordinate.longitude];
-    
-    NSDictionary *parameters = @{@"ll" : coordinateString,
-                                 @"query" : search,
-                                 LimitKey : @(10),
-                                 @"sortByDistance" : @(1)};
+    NSDictionary *parameters = @{locationKey : coordinateString,
+                                 queryKey : search,
+                                 limitKey : @(limit),
+                                 sortKey : @(1),
+                                 offsetKey : offset};
     
     [self GET:NetworkManagerVenuesExplore parameters:parameters success:^(id JSON) {
         NSArray *items = [[[[JSON objectForKey:@"response"] objectForKey:@"groups"] objectAtIndex:0] objectForKey:@"items"];

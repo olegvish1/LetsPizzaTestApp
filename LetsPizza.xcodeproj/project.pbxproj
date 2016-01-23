@@ -20,6 +20,7 @@
 		141935FF1C527FBB00F18B00 /* PizzaPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 141935FE1C527FBB00F18B00 /* PizzaPlace.m */; };
 		141936051C5291FD00F18B00 /* PlaceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 141936031C5291FD00F18B00 /* PlaceCell.m */; };
 		141936061C5291FD00F18B00 /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 141936041C5291FD00F18B00 /* PlaceCell.xib */; };
+		1473E1641C53E1140086B433 /* SpinnerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1473E1631C53E1140086B433 /* SpinnerCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,8 @@
 		141936021C5291FD00F18B00 /* PlaceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaceCell.h; path = Controllers/MainViewController/PlaceCell/PlaceCell.h; sourceTree = "<group>"; };
 		141936031C5291FD00F18B00 /* PlaceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlaceCell.m; path = Controllers/MainViewController/PlaceCell/PlaceCell.m; sourceTree = "<group>"; };
 		141936041C5291FD00F18B00 /* PlaceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlaceCell.xib; path = Controllers/MainViewController/PlaceCell/PlaceCell.xib; sourceTree = "<group>"; };
+		1473E1621C53E1140086B433 /* SpinnerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpinnerCell.h; path = Controllers/MainViewController/SpinnerCell/SpinnerCell.h; sourceTree = "<group>"; };
+		1473E1631C53E1140086B433 /* SpinnerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpinnerCell.m; path = Controllers/MainViewController/SpinnerCell/SpinnerCell.m; sourceTree = "<group>"; };
 		2F5A53B86282303292D7B71D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D1F734E14BF600FA851ED11E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -116,6 +119,7 @@
 			children = (
 				141935EF1C52556D00F18B00 /* MainViewController.h */,
 				141935F01C52556D00F18B00 /* MainViewController.m */,
+				1473E1651C53E11D0086B433 /* SpinnerCell */,
 				141936071C52920400F18B00 /* PlaceCell */,
 			);
 			name = MainViewController;
@@ -182,6 +186,15 @@
 				141936041C5291FD00F18B00 /* PlaceCell.xib */,
 			);
 			name = PlaceCell;
+			sourceTree = "<group>";
+		};
+		1473E1651C53E11D0086B433 /* SpinnerCell */ = {
+			isa = PBXGroup;
+			children = (
+				1473E1621C53E1140086B433 /* SpinnerCell.h */,
+				1473E1631C53E1140086B433 /* SpinnerCell.m */,
+			);
+			name = SpinnerCell;
 			sourceTree = "<group>";
 		};
 		60D85009749374661C5BDB9A /* Pods */ = {
@@ -319,6 +332,7 @@
 				141935FF1C527FBB00F18B00 /* PizzaPlace.m in Sources */,
 				141935DA1C52461B00F18B00 /* AppDelegate.m in Sources */,
 				141936051C5291FD00F18B00 /* PlaceCell.m in Sources */,
+				1473E1641C53E1140086B433 /* SpinnerCell.m in Sources */,
 				141935F11C52556D00F18B00 /* MainViewController.m in Sources */,
 				141935F61C5255BD00F18B00 /* PizzaDetailViewController.m in Sources */,
 				141935FA1C5257A200F18B00 /* NetworkManager.m in Sources */,
