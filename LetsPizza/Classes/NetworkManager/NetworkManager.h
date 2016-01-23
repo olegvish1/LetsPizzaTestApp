@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AFNetworking.h"
+
+@class CLLocation;
 
 typedef void (^SuccessBlock)(id JSON);
 typedef void (^FailureBlock)(NSError *error);
@@ -18,6 +19,6 @@ typedef void (^FailureBlock)(NSError *error);
 
 - (void)searchVenuesWithSearchWord:(NSString *)search parameters:(NSDictionary *)parameters success:(SuccessBlock)success failure:(FailureBlock)failure;
 
-- (void)exploreVenuesWithSearchWord:(NSString *)search parameters:(NSDictionary *)parameters success:(SuccessBlock)success failure:(FailureBlock)failure;
+- (void)exploreVenuesWithSearchWord:(NSString *)search location:(CLLocation *)location success:(SuccessBlock)success failure:(FailureBlock)failure;
 
 @end

@@ -11,13 +11,15 @@
 #import "PizzaPlace.h"
 #import "PlaceCell.h"
 #import "MBProgressHUD.h"
+#import <CoreLocation/CoreLocation.h>
 
 static NSString *cellIdentifier = @"PlaceCell";
 
-@interface MainViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface MainViewController () <UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate>
 
 @property (strong, nonatomic) NSArray *places;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) CLLocationManager *locationManager;
 
 @end
 
@@ -27,20 +29,28 @@ static NSString *cellIdentifier = @"PlaceCell";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self setupLocation];
+    
     [self.tableView registerNib:[UINib nibWithNibName:@"PlaceCell" bundle:nil] forCellReuseIdentifier:cellIdentifier];
 //    [self.tableView registerClass:[PlaceCell class] forCellReuseIdentifier:cellIdentifier];
     
     self.navigationItem.title = @"Pizza plases";
     
-    [self fetchPlaces];
-    
 }
 
-- (void)fetchPlaces {
+- (void)setupLocation {
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    [self.locationManager startUpdatingLocation];
+}
+
+- (void)fetchPlacesWithLocation:(CLLocation *) location{
     [MBProgressHUD showHUDAddedTo:self.view animated:NO];
     __weak __typeof(self)weakSelf = self;
-    [[NetworkManager sharedManager] exploreVenuesWithSearchWord:@"pizza" parameters:nil success:^(id JSON) {
-        NSArray *items = [[[[JSON objectForKey:@"response"] objectForKey:@"groups"] objectAtIndex:0] objectForKey:@"items"];
+    [[NetworkManager sharedManager] exploreVenuesWithSearchWord:@"pizza" location:location success:^(NSArray *items) {
         [weakSelf convertPlaces:items];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         
@@ -48,11 +58,6 @@ static NSString *cellIdentifier = @"PlaceCell";
         NSLog(@"%@", error);
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)convertPlaces:(NSArray *)items {
@@ -63,6 +68,11 @@ static NSString *cellIdentifier = @"PlaceCell";
     }
     self.places = [NSArray arrayWithArray:places];
     [self.tableView reloadData];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - UITableViewDataSource
@@ -97,5 +107,37 @@ static NSString *cellIdentifier = @"PlaceCell";
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - CLLocationManagerDelegate
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    CLLocation *location = [locations lastObject];
+    if (location) {
+        [manager stopUpdatingLocation];
+        [self fetchPlacesWithLocation:location];
+    }
+    
+}
+
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    if (status == kCLAuthorizationStatusRestricted || status == kCLAuthorizationStatusDenied) {
+        NSLog(@"not in use");
+        [self showErrorAlert:@"Turn on location services"];
+        
+    } else {
+        NSLog(@"In use");
+    }
+}
+
+#pragma mark - Alert
+
+- (void)showErrorAlert:(NSString *)message {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:message preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *dismissAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [alert addAction:dismissAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
 
 @end

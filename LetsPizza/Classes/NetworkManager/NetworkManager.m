@@ -7,6 +7,8 @@
 //
 
 #import "NetworkManager.h"
+#import "AFNetworking.h"
+#import <CoreLocation/CoreLocation.h>
 
 NSString *const NetworkManagerClientID = @"OOPNZQCHDMQRYAM1UOZ0DJB5W3HIOBCFL4AYKB4GOKOA5E01";
 
@@ -71,7 +73,6 @@ NSString *const LimitKey = @"limit";
 
         failure(error);
     }];
-
 }
 
 
@@ -85,14 +86,23 @@ NSString *const LimitKey = @"limit";
     [self GET:NetworkManagerVenuesSearch parameters:dict success:success failure:failure];
 }
 
-- (void)exploreVenuesWithSearchWord:(NSString *)search parameters:(NSDictionary *)parameters success:(SuccessBlock)success failure:(FailureBlock)failure {
+- (void)exploreVenuesWithSearchWord:(NSString *)search location:(CLLocation *)location success:(SuccessBlock)success failure:(FailureBlock)failure {
     
-    CGFloat latitude = 40.7;
-    CGFloat longitude = -74.0;
+    [self exploreVenuesWithSearchWord:search location:location offset:@(0) success:success failure:failure];
+}
+
+- (void)exploreVenuesWithSearchWord:(NSString *)search location:(CLLocation *)location offset:(NSNumber *)offset success:(SuccessBlock)success failure:(FailureBlock)failure {
+    NSString *coordinateString = [NSString stringWithFormat:@"%0.1f,%0.1f", location.coordinate.latitude, location.coordinate.longitude];
     
-    NSDictionary *dict = @{@"ll" : [NSString stringWithFormat:@"%0.1f,%0.1f", latitude, longitude], @"query" : search, LimitKey : @(10), @"sortByDistance" : @(1)};
+    NSDictionary *parameters = @{@"ll" : coordinateString,
+                                 @"query" : search,
+                                 LimitKey : @(10),
+                                 @"sortByDistance" : @(1)};
     
-    [self GET:NetworkManagerVenuesExplore parameters:dict success:success failure:failure];
+    [self GET:NetworkManagerVenuesExplore parameters:parameters success:^(id JSON) {
+        NSArray *items = [[[[JSON objectForKey:@"response"] objectForKey:@"groups"] objectAtIndex:0] objectForKey:@"items"];
+        success(items);
+    } failure:failure];
 }
 
 @end
