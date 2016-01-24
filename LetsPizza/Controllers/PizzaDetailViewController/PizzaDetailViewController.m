@@ -30,28 +30,24 @@
     
     [self.placeInfoView setupWithPlace:self.place];
     
-    [self.mapView setUserTrackingMode:MKUserTrackingModeFollow];
+    [self setupMapView];
     
+}
+
+- (void)setupMapView {
+    [self.mapView setUserTrackingMode:MKUserTrackingModeFollow];
+
     MKCoordinateSpan span = MKCoordinateSpanMake(0.05, 0.05);
     MKCoordinateRegion region = MKCoordinateRegionMake (self.currentLocation.coordinate, span);
     
     [self.mapView setRegion:region];
     
-    
-//    NSArray *routeCoordinates = @[self.currentLocation.coordinate, self.place.location.coordinate];
-//    MKPolyline *routeLine = [MKPolyline polylineWithCoordinates:routeCoordinates count:2];
-//    [self.mapView addOverlay:routeLine];
-    
-    
     MapAnnotation *annotation = [[MapAnnotation alloc] initWithCoordinates:self.place.location.coordinate];
     
     annotation.title = self.place.address;
+    annotation.subtitle = self.place.isOpen ? @"Open" : @"Closed";
     
     [self.mapView addAnnotation:annotation];
-    
-//    [self.mapView selectAnnotation:annotation animated:YES];
-    
-    
     
 }
 
@@ -63,15 +59,5 @@
 -(void)backAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
