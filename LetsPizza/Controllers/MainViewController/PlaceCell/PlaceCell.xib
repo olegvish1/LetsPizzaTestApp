@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,26 +15,41 @@
                 <rect key="frame" x="0.0" y="0.0" width="287" height="74.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKf-Ga-gtL">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKf-Ga-gtL">
                         <rect key="frame" x="8" y="0.0" width="214" height="47"/>
                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSX-uN-JPm">
-                        <rect key="frame" x="8" y="45" width="279" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSX-uN-JPm">
+                        <rect key="frame" x="8" y="47" width="271" height="23"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p7X-vv-Hua">
-                        <rect key="frame" x="230" y="10" width="63" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p7X-vv-Hua">
+                        <rect key="frame" x="224" y="8" width="63" height="19"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="63" id="bol-zS-ZiM"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                         <color key="shadowColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="eKf-Ga-gtL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="DVp-p9-auR"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="p7X-vv-Hua" secondAttribute="trailing" constant="-8" id="N88-qs-uLz"/>
+                    <constraint firstItem="JSX-uN-JPm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Z9l-ZN-e0O"/>
+                    <constraint firstItem="JSX-uN-JPm" firstAttribute="top" secondItem="eKf-Ga-gtL" secondAttribute="bottom" id="b3F-VN-Ggt"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="JSX-uN-JPm" secondAttribute="bottom" constant="-3.5" id="frR-ih-v2s"/>
+                    <constraint firstItem="p7X-vv-Hua" firstAttribute="leading" secondItem="eKf-Ga-gtL" secondAttribute="trailing" constant="2" id="jV8-uZ-qqu"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="JSX-uN-JPm" secondAttribute="trailing" id="lEB-1p-0eR"/>
+                    <constraint firstItem="JSX-uN-JPm" firstAttribute="top" secondItem="p7X-vv-Hua" secondAttribute="bottom" constant="20" id="n1d-RG-pYS"/>
+                    <constraint firstItem="eKf-Ga-gtL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="pPb-u8-QVo"/>
+                    <constraint firstItem="p7X-vv-Hua" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="y9M-Qs-enH"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="distanceLabel" destination="p7X-vv-Hua" id="e2o-JV-KKF"/>
