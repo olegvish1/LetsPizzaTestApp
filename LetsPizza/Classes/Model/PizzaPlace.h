@@ -7,13 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+@class CLLocation;
 
 @interface PizzaPlace : NSObject
 
 @property (strong, nonatomic) NSString *placeID;
 @property (strong, nonatomic) NSString *name;
-
 @property (strong, nonatomic) NSNumber *distance;
+
+@property (strong, nonatomic) NSString *formattedPhone;
+@property (strong, nonatomic) NSString *status;
+@property (nonatomic) BOOL isOpen;
+@property (strong, nonatomic) NSString *address;
+@property (strong, nonatomic) CLLocation *location;
+@property (strong, nonatomic) NSString *urlAddress;
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 

@@ -77,6 +77,7 @@
                     <navigationItem key="navigationItem" id="U4J-1A-e3G"/>
                     <connections>
                         <outlet property="tableView" destination="YAa-qQ-xRE" id="pNW-5R-3U1"/>
+                        <segue destination="ChV-O7-Lz1" kind="show" identifier="showPlaceDetail" id="p5A-bF-3xB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -94,8 +95,35 @@
                     <view key="view" contentMode="scaleToFill" id="Ow5-Ar-Atw">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NYd-EZ-2e9">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ChV-O7-Lz1" id="1Ai-Jl-vcc"/>
+                                </connections>
+                            </mapView>
+                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X9k-WY-lKT">
+                                <rect key="frame" x="0.0" y="64" width="600" height="80"/>
+                                <color key="backgroundColor" white="0.50668174342105265" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="wWi-4v-nP7"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NYd-EZ-2e9" firstAttribute="top" secondItem="4DY-Y8-pv2" secondAttribute="bottom" id="39M-Bo-RPn"/>
+                            <constraint firstItem="Art-ZG-wlo" firstAttribute="top" secondItem="NYd-EZ-2e9" secondAttribute="bottom" id="AAd-cF-BUS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="X9k-WY-lKT" secondAttribute="trailing" constant="-20" id="Cvw-Jb-Srh"/>
+                            <constraint firstItem="X9k-WY-lKT" firstAttribute="leading" secondItem="Ow5-Ar-Atw" secondAttribute="leadingMargin" constant="-20" id="PGw-3F-UcO"/>
+                            <constraint firstItem="X9k-WY-lKT" firstAttribute="top" secondItem="4DY-Y8-pv2" secondAttribute="bottom" id="aWE-ZI-WGW"/>
+                            <constraint firstItem="NYd-EZ-2e9" firstAttribute="leading" secondItem="Ow5-Ar-Atw" secondAttribute="leadingMargin" constant="-20" id="gps-hR-nnH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NYd-EZ-2e9" secondAttribute="trailing" constant="-20" id="qM4-Qk-7xu"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="NYd-EZ-2e9" id="E0S-jD-tGs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yGQ-b2-V0J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

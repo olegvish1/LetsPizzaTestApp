@@ -7,6 +7,7 @@
 //
 
 #import "PizzaPlace.h"
+#import <CoreLocation/CoreLocation.h>
 
 @implementation PizzaPlace
 
@@ -16,6 +17,17 @@
         self.placeID = [venue objectForKey:@"id"];
         self.name = [venue objectForKey:@"name"];
         self.distance = [[venue objectForKey:@"location"] objectForKey:@"distance"];
+        
+        self.formattedPhone = [[[dictionary objectForKey:@"venue"] objectForKey:@"contact"] objectForKey:@"formattedPhone"];
+        self.isOpen = [[[[dictionary objectForKey:@"venue"] objectForKey:@"hours"] objectForKey:@"status"] boolValue];
+        self.address = [[[venue objectForKey:@"location"] objectForKey:@"formattedAddress"] firstObject];
+        
+        
+        double lat = [[[venue objectForKey:@"location"] objectForKey:@"lat"] doubleValue];
+        double lng = [[[venue objectForKey:@"location"] objectForKey:@"lng"] doubleValue];
+        self.location = [[CLLocation alloc] initWithLatitude:lat longitude:lng];
+        self.urlAddress = [venue objectForKey:@"url"];
+        
     }
     return self;
 }

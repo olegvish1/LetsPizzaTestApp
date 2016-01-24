@@ -13,6 +13,7 @@
 #import "SpinnerCell.h"
 #import "MBProgressHUD.h"
 #import <CoreLocation/CoreLocation.h>
+#import "PizzaDetailViewController.h"
 
 static NSString *searchWord = @"pizza";
 static NSString *cellIdentifier = @"PlaceCell";
@@ -23,7 +24,8 @@ static NSString *spinnerCellIdentifier = @"SpinnerCell";
 @property (strong, nonatomic) NSMutableArray *places;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) CLLocationManager *locationManager;
-@property (strong, nonatomic) CLLocation *currecntLocation;
+@property (strong, nonatomic) CLLocation *currentLocation;
+@property (strong, nonatomic) PizzaPlace *selectedPlace;
 @property (nonatomic) NSUInteger offset;
 
 @end
@@ -54,7 +56,7 @@ static NSString *spinnerCellIdentifier = @"SpinnerCell";
 - (void)fetchPlaces {
     [MBProgressHUD showHUDAddedTo:self.view animated:NO];
     __weak __typeof(self)weakSelf = self;
-    [[NetworkManager sharedManager] exploreVenuesWithSearchWord:searchWord location:self.currecntLocation success:^(NSArray *items) {
+    [[NetworkManager sharedManager] exploreVenuesWithSearchWord:searchWord location:self.currentLocation success:^(NSArray *items) {
         [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
         weakSelf.offset += items.count;
         weakSelf.places = [weakSelf convertPlaces:items];
@@ -70,7 +72,7 @@ static NSString *spinnerCellIdentifier = @"SpinnerCell";
 
 - (void)appendPlaces {
     __weak __typeof(self)weakSelf = self;
-    [[NetworkManager sharedManager] exploreVenuesWithSearchWord:searchWord location:self.currecntLocation offset:@(self.offset) success:^(NSArray *items) {
+    [[NetworkManager sharedManager] exploreVenuesWithSearchWord:searchWord location:self.currentLocation offset:@(self.offset) success:^(NSArray *items) {
         weakSelf.offset += items.count;
         
         [self.places addObjectsFromArray:[weakSelf convertPlaces:items]];
@@ -131,20 +133,29 @@ static NSString *spinnerCellIdentifier = @"SpinnerCell";
     }
 }
 
-/*
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == self.places.count)  return;
+    
+    self.selectedPlace = self.places[indexPath.row];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self performSegueWithIdentifier:@"showPlaceDetail" sender:self];
+}
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
+    PizzaDetailViewController *controller = [segue destinationViewController];
+    controller.place = self.selectedPlace;
+    controller.currentLocation = self.currentLocation;
 }
-*/
+
 
 #pragma mark - CLLocationManagerDelegate
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    self.currecntLocation = [locations lastObject];
-    if (self.currecntLocation) {
+    self.currentLocation = [locations lastObject];
+    if (self.currentLocation) {
         [manager stopUpdatingLocation];
         [self fetchPlaces];
     }
