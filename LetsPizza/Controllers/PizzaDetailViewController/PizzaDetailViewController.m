@@ -11,9 +11,11 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "MapAnnotation.h"
+#import "PlaceInfoView.h"
 
 @interface PizzaDetailViewController () <MKMapViewDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet PlaceInfoView *placeInfoView;
 
 @end
 
@@ -25,6 +27,8 @@
     
     self.navigationItem.title = self.place.name;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(backAction:)];
+    
+    [self.placeInfoView setupWithPlace:self.place];
     
     [self.mapView setUserTrackingMode:MKUserTrackingModeFollow];
     

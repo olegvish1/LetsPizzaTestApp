@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSNumber *distance;
 
 @property (strong, nonatomic) NSString *formattedPhone;
+@property (strong, nonatomic) NSString *phoneNumber;
 @property (strong, nonatomic) NSString *status;
 @property (nonatomic) BOOL isOpen;
 @property (strong, nonatomic) NSString *address;

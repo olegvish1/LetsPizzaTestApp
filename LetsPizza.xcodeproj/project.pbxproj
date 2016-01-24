@@ -24,6 +24,8 @@
 		1473E1671C54B2710086B433 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1473E1661C54B2710086B433 /* MapKit.framework */; };
 		1473E1691C54B2A70086B433 /* NewYorkLocation.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 1473E1681C54B2A70086B433 /* NewYorkLocation.gpx */; };
 		1473E16C1C54BF4D0086B433 /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1473E16B1C54BF4D0086B433 /* MapAnnotation.m */; };
+		1473E1731C550FFA0086B433 /* UIColor+CustomColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 1473E1721C550FFA0086B433 /* UIColor+CustomColors.m */; };
+		1473E1771C5529E00086B433 /* PlaceInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1473E1761C5529E00086B433 /* PlaceInfoView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,10 @@
 		1473E1681C54B2A70086B433 /* NewYorkLocation.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = NewYorkLocation.gpx; path = ../NewYorkLocation.gpx; sourceTree = "<group>"; };
 		1473E16A1C54BF4D0086B433 /* MapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapAnnotation.h; path = Classes/MapAnnotation/MapAnnotation.h; sourceTree = "<group>"; };
 		1473E16B1C54BF4D0086B433 /* MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapAnnotation.m; path = Classes/MapAnnotation/MapAnnotation.m; sourceTree = "<group>"; };
+		1473E1711C550FFA0086B433 /* UIColor+CustomColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+CustomColors.h"; path = "Categories/UIColor+CustomColors.h"; sourceTree = "<group>"; };
+		1473E1721C550FFA0086B433 /* UIColor+CustomColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+CustomColors.m"; path = "Categories/UIColor+CustomColors.m"; sourceTree = "<group>"; };
+		1473E1751C5529E00086B433 /* PlaceInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaceInfoView.h; path = CustomViews/PlaceInfoView/PlaceInfoView.h; sourceTree = "<group>"; };
+		1473E1761C5529E00086B433 /* PlaceInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlaceInfoView.m; path = CustomViews/PlaceInfoView/PlaceInfoView.m; sourceTree = "<group>"; };
 		2F5A53B86282303292D7B71D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D1F734E14BF600FA851ED11E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -103,6 +109,7 @@
 			children = (
 				141935D81C52461B00F18B00 /* AppDelegate.h */,
 				141935D91C52461B00F18B00 /* AppDelegate.m */,
+				1473E1741C550FFF0086B433 /* Categories */,
 				141935FC1C5257AB00F18B00 /* Classes */,
 				141935F31C52559900F18B00 /* Controllers */,
 				141935DE1C52461B00F18B00 /* Main.storyboard */,
@@ -168,6 +175,7 @@
 				141935FB1C5257A600F18B00 /* NetworkManager */,
 				141936011C527FC500F18B00 /* Model */,
 				1473E16D1C54BF560086B433 /* MapAnnotation */,
+				1473E1791C5529EE0086B433 /* CustomViews */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -215,6 +223,32 @@
 				1473E16B1C54BF4D0086B433 /* MapAnnotation.m */,
 			);
 			name = MapAnnotation;
+			sourceTree = "<group>";
+		};
+		1473E1741C550FFF0086B433 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				1473E1711C550FFA0086B433 /* UIColor+CustomColors.h */,
+				1473E1721C550FFA0086B433 /* UIColor+CustomColors.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		1473E1781C5529E70086B433 /* PlaceInfoView */ = {
+			isa = PBXGroup;
+			children = (
+				1473E1751C5529E00086B433 /* PlaceInfoView.h */,
+				1473E1761C5529E00086B433 /* PlaceInfoView.m */,
+			);
+			name = PlaceInfoView;
+			sourceTree = "<group>";
+		};
+		1473E1791C5529EE0086B433 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				1473E1781C5529E70086B433 /* PlaceInfoView */,
+			);
+			name = CustomViews;
 			sourceTree = "<group>";
 		};
 		60D85009749374661C5BDB9A /* Pods */ = {
@@ -355,9 +389,11 @@
 				141936051C5291FD00F18B00 /* PlaceCell.m in Sources */,
 				1473E1641C53E1140086B433 /* SpinnerCell.m in Sources */,
 				141935F11C52556D00F18B00 /* MainViewController.m in Sources */,
+				1473E1771C5529E00086B433 /* PlaceInfoView.m in Sources */,
 				141935F61C5255BD00F18B00 /* PizzaDetailViewController.m in Sources */,
 				141935FA1C5257A200F18B00 /* NetworkManager.m in Sources */,
 				141935D71C52461B00F18B00 /* main.m in Sources */,
+				1473E1731C550FFA0086B433 /* UIColor+CustomColors.m in Sources */,
 				1473E16C1C54BF4D0086B433 /* MapAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -27,6 +27,7 @@ static NSString *spinnerCellIdentifier = @"SpinnerCell";
 @property (strong, nonatomic) CLLocation *currentLocation;
 @property (strong, nonatomic) PizzaPlace *selectedPlace;
 @property (nonatomic) NSUInteger offset;
+@property (nonatomic) BOOL isFetching;
 
 @end
 
@@ -54,6 +55,8 @@ static NSString *spinnerCellIdentifier = @"SpinnerCell";
 }
 
 - (void)fetchPlaces {
+    if (self.isFetching) return;
+    self.isFetching = YES;
     [MBProgressHUD showHUDAddedTo:self.view animated:NO];
     __weak __typeof(self)weakSelf = self;
     [[NetworkManager sharedManager] exploreVenuesWithSearchWord:searchWord location:self.currentLocation success:^(NSArray *items) {
@@ -65,7 +68,7 @@ static NSString *spinnerCellIdentifier = @"SpinnerCell";
         
     } failure:^(NSError *error) {
         NSLog(@"%@", error);
-        [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+        [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
         [weakSelf showErrorAlert:error.localizedDescription];
     }];
 }
@@ -155,20 +158,14 @@ static NSString *spinnerCellIdentifier = @"SpinnerCell";
 #pragma mark - CLLocationManagerDelegate
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
     self.currentLocation = [locations lastObject];
-    if (self.currentLocation) {
-        [manager stopUpdatingLocation];
-        [self fetchPlaces];
-    }
+    [manager stopUpdatingLocation];
+    [self fetchPlaces];
     
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     if (status == kCLAuthorizationStatusRestricted || status == kCLAuthorizationStatusDenied) {
-        NSLog(@"not in use");
         [self showErrorAlert:@"Turn on location services"];
-        
-    } else {
-        NSLog(@"In use");
     }
 }
 

@@ -19,7 +19,9 @@
         self.distance = [[venue objectForKey:@"location"] objectForKey:@"distance"];
         
         self.formattedPhone = [[[dictionary objectForKey:@"venue"] objectForKey:@"contact"] objectForKey:@"formattedPhone"];
-        self.isOpen = [[[[dictionary objectForKey:@"venue"] objectForKey:@"hours"] objectForKey:@"status"] boolValue];
+        self.phoneNumber = [[[dictionary objectForKey:@"venue"] objectForKey:@"contact"] objectForKey:@"phone"];
+        self.isOpen = [[[[dictionary objectForKey:@"venue"] objectForKey:@"hours"] objectForKey:@"isOpen"] boolValue];
+        self.status = [[[dictionary objectForKey:@"venue"] objectForKey:@"hours"] objectForKey:@"status"];
         self.address = [[[venue objectForKey:@"location"] objectForKey:@"formattedAddress"] firstObject];
         
         
